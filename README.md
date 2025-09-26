@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎓 Student Life Toolkit App
 
-## Getting Started
+A modern web application built with **Next.js**, **React**, and **ShadCN UI**, designed to simplify and organize student life. From tracking your classes to managing budgets, planning study goals, and preparing for exams — everything is in one place!
 
-First, run the development server:
+---
+
+## Features
+
+* 📅 **Class Schedule Tracker** – Never miss a class again!
+* 💰 **Budget Tracker** – Keep your pocket money in check.
+* 📝 **Exam Q&A Generator** – Prepare smartly before exams.
+* 🎯 **Study Planner** – Break down big study goals into manageable tasks.
+* 📊 **Dashboard Overview** – A clean and intuitive UI for quick insights.
+
+---
+
+## 🛠️ Tech Stack
+
+* **Framework:** [Next.js](https://nextjs.org/) (App Router)
+* **UI Library:** [ShadCN/UI](https://ui.shadcn.com/) + [Tailwind CSS](https://tailwindcss.com/)
+* **Icons:** [Lucide Icons](https://lucide.dev/)
+* **Language:** TypeScript / JavaScript
+
+---
+
+## 📦 Installation
+
+Clone the repo and install dependencies:
+
+```bash
+git clone https://github.com/your-username/student-life-toolkit.git
+cd student-life-toolkit
+npm install
+```
+
+---
+
+## ▶️ Running the App
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📂 Project Structure
 
-## Learn More
+```
+student-life-toolkit/
+├── app/                # Next.js App Router pages & layouts
+├── components/         # Reusable UI components (Navbar, Cards, etc.)
+├── public/             # Static assets
+├── styles/             # Global styles
+├── README.md           # Project documentation
+└── package.json        # Dependencies & scripts
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🤝 Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Contributions are welcome!
 
-## Deploy on Vercel
+1. Fork the repo
+2. Create a new branch (`feature/your-feature`)
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
