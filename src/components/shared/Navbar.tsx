@@ -215,8 +215,6 @@ const AvatarIcon = ({ className }: { className?: string }) => (
 const Navber = () => {
   // State for the main mobile menu
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // State for desktop dropdowns
-  const [isFeaturesOpen, setIsFeaturesOpen] = useState(false);
   const [isAvatarOpen, setIsAvatarOpen] = useState(false);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   // State to manage which dropdown is open (for mobile)
@@ -225,21 +223,12 @@ const Navber = () => {
   );
 
   // Refs to detect outside clicks
-  const featuresDropdownRef = useRef<HTMLDivElement>(null);
   const avatarDropdownRef = useRef<HTMLDivElement>(null);
   const notificationsDropdownRef = useRef<HTMLDivElement>(null);
 
   // --- Data for Navigation ---
   const navLinks = [
-    {
-      label: "Features",
-      dropdown: [
-        { href: "/schedule", label: "Schedule" },
-        { href: "/budget", label: "Budget" },
-        { href: "/exam", label: "Exam" },
-        { href: "/planner", label: "Planner" },
-      ],
-    },
+    { href: "/Features", label: "Features" },
     { href: "/blogs", label: "Blogs" },
     { href: "/aboutUs", label: "About Us" },
     { href: "/contectUs", label: "Contact Us" },
@@ -253,12 +242,6 @@ const Navber = () => {
   // Effect to handle clicks outside of dropdowns
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        featuresDropdownRef.current &&
-        !featuresDropdownRef.current.contains(event.target as Node)
-      ) {
-        setIsFeaturesOpen(false);
-      }
       if (
         avatarDropdownRef.current &&
         !avatarDropdownRef.current.contains(event.target as Node)
@@ -278,10 +261,6 @@ const Navber = () => {
     };
   }, []);
 
-  // Function to toggle mobile dropdowns
-  const toggleMobileDropdown = (label: string) => {
-    setOpenMobileDropdown(openMobileDropdown === label ? null : label);
-  };
 
   return (
     <header className="bg-white/80 dark:bg-black/80 backdrop-blur-sm sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800">
@@ -299,52 +278,15 @@ const Navber = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-6">
-              {navLinks.map((link) =>
-                link.dropdown ? (
-                  <div
-                    key={link.label}
-                    className="relative"
-                    ref={featuresDropdownRef}
-                  >
-                    <button
-                      onClick={() => setIsFeaturesOpen(!isFeaturesOpen)}
-                      className="flex items-center gap-1 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-300 focus:outline-none"
-                    >
-                      {link.label}
-                      <ChevronDownIcon
-                        className={`h-4 w-4 transition-transform duration-300 ${
-                          isFeaturesOpen ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
-                    <div
-                      className={`absolute top-full mt-2 w-48 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg transition-opacity duration-300 ${
-                        isFeaturesOpen
-                          ? "opacity-100 visible"
-                          : "opacity-0 invisible"
-                      }`}
-                    >
-                      {link.dropdown.map((item) => (
-                        <a
-                          key={item.label}
-                          href={item.href}
-                          className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-                        >
-                          {item.label}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                ) : (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    className="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-300"
-                  >
-                    {link.label}
-                  </a>
-                )
-              )}
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-300"
+                >
+                  {link.label}
+                </a>
+              ))}
             </nav>
           </div>
 
@@ -382,15 +324,6 @@ const Navber = () => {
                     <p className="font-medium">New message</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
                       You have a new message from Jane Doe.
-                    </p>
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-                  >
-                    <p className="font-medium">Server update</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
-                      Server #1 will be updated at 3:00 AM.
                     </p>
                   </a>
                 </div>
@@ -448,44 +381,15 @@ const Navber = () => {
           id="mobile-menu"
         >
           <div className="px-4 pt-2 pb-3 space-y-1 sm:px-3">
-            {navLinks.map((link) =>
-              link.dropdown ? (
-                <div key={link.label}>
-                  <button
-                    onClick={() => toggleMobileDropdown(link.label)}
-                    className="w-full flex justify-between items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 px-3 py-2 rounded-md text-base font-medium"
-                  >
-                    {link.label}
-                    <ChevronDownIcon
-                      className={`h-5 w-5 transition-transform duration-300 ${
-                        openMobileDropdown === link.label ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                  {openMobileDropdown === link.label && (
-                    <div className="pl-4 pt-2 space-y-1">
-                      {link.dropdown.map((item) => (
-                        <a
-                          key={item.label}
-                          href={item.href}
-                          className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 block px-3 py-2 rounded-md text-sm font-medium"
-                        >
-                          {item.label}
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  {link.label}
-                </a>
-              )
-            )}
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 block px-3 py-2 rounded-md text-base font-medium"
+              >
+                {link.label}
+              </a>
+            ))}
             <div className="border-t border-gray-200 dark:border-gray-700 mt-4 pt-4">
               <div className="flex items-center justify-between px-3">
                 <div className="flex items-center">
