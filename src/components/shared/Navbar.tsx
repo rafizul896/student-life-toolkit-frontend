@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState, useRef, useEffect } from "react";
 
 const MenuIcon = ({ className }: { className?: string }) => (
@@ -279,13 +280,13 @@ const Navber = () => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-6">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
                   className="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-300"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>
