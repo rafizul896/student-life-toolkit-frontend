@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, MessageSquare, MapPin, Send } from "lucide-react";
 import { useState } from "react";
@@ -7,18 +9,18 @@ export default function ContactUsPage() {
     name: "",
     email: "",
     subject: "",
-    message: ""
+    message: "",
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     setSubmitted(true);
     setTimeout(() => {
@@ -31,8 +33,9 @@ export default function ContactUsPage() {
     <section className="max-w-5xl mx-auto px-6 py-12">
       <h1 className="text-4xl font-bold text-center mb-6">Contact Us</h1>
       <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-12">
-        Have questions, feedback, or suggestions? We'd love to hear from you! 
-        Reach out to us and we'll get back to you as soon as possible.
+        Have questions, feedback, or suggestions? We&lsquo;d love to hear from
+        you! Reach out to us and we&lsquo;ll get back to you as soon as
+        possible.
       </p>
 
       <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -124,11 +127,17 @@ export default function ContactUsPage() {
             </CardHeader>
             <CardContent className="text-gray-600">
               <p className="mb-2">For general inquiries:</p>
-              <a href="mailto:support@studentlifetoolkit.com" className="text-indigo-600 hover:underline font-medium">
+              <a
+                href="mailto:support@studentlifetoolkit.com"
+                className="text-indigo-600 hover:underline font-medium"
+              >
                 support@studentlifetoolkit.com
               </a>
               <p className="mt-4 mb-2">For partnerships:</p>
-              <a href="mailto:partners@studentlifetoolkit.com" className="text-indigo-600 hover:underline font-medium">
+              <a
+                href="mailto:partners@studentlifetoolkit.com"
+                className="text-indigo-600 hover:underline font-medium"
+              >
                 partners@studentlifetoolkit.com
               </a>
             </CardContent>
@@ -140,15 +149,26 @@ export default function ContactUsPage() {
               <CardTitle>Community</CardTitle>
             </CardHeader>
             <CardContent className="text-gray-600">
-              <p className="mb-3">Join our community for tips, updates, and support:</p>
+              <p className="mb-3">
+                Join our community for tips, updates, and support:
+              </p>
               <div className="space-y-2">
-                <a href="#" className="block text-indigo-600 hover:underline font-medium">
+                <a
+                  href="#"
+                  className="block text-indigo-600 hover:underline font-medium"
+                >
                   Discord Community →
                 </a>
-                <a href="#" className="block text-indigo-600 hover:underline font-medium">
+                <a
+                  href="#"
+                  className="block text-indigo-600 hover:underline font-medium"
+                >
                   Twitter/X @StudentToolkit →
                 </a>
-                <a href="#" className="block text-indigo-600 hover:underline font-medium">
+                <a
+                  href="#"
+                  className="block text-indigo-600 hover:underline font-medium"
+                >
                   Reddit Community →
                 </a>
               </div>
@@ -163,7 +183,8 @@ export default function ContactUsPage() {
             <CardContent className="text-gray-600">
               <p>Student Life Toolkit HQ</p>
               <p className="text-sm mt-1">
-                Remote-first team<br />
+                Remote-first team
+                <br />
                 Serving students worldwide 🌍
               </p>
             </CardContent>
@@ -174,20 +195,35 @@ export default function ContactUsPage() {
       {/* FAQ Section */}
       <Card className="shadow-md">
         <CardHeader>
-          <CardTitle className="text-center">Frequently Asked Questions</CardTitle>
+          <CardTitle className="text-center">
+            Frequently Asked Questions
+          </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
-            <h3 className="font-semibold text-gray-800 mb-2">How quickly will I get a response?</h3>
-            <p className="text-gray-600 text-sm">We typically respond within 24-48 hours during business days.</p>
+            <h3 className="font-semibold text-gray-800 mb-2">
+              How quickly will I get a response?
+            </h3>
+            <p className="text-gray-600 text-sm">
+              We typically respond within 24-48 hours during business days.
+            </p>
           </div>
           <div>
-            <h3 className="font-semibold text-gray-800 mb-2">Is this platform free?</h3>
-            <p className="text-gray-600 text-sm">Yes! Student Life Toolkit is completely free for all students.</p>
+            <h3 className="font-semibold text-gray-800 mb-2">
+              Is this platform free?
+            </h3>
+            <p className="text-gray-600 text-sm">
+              Yes! Student Life Toolkit is completely free for all students.
+            </p>
           </div>
           <div>
-            <h3 className="font-semibold text-gray-800 mb-2">Can I suggest new features?</h3>
-            <p className="text-gray-600 text-sm">Absolutely! We love hearing your ideas. Just use the contact form above.</p>
+            <h3 className="font-semibold text-gray-800 mb-2">
+              Can I suggest new features?
+            </h3>
+            <p className="text-gray-600 text-sm">
+              Absolutely! We love hearing your ideas. Just use the contact form
+              above.
+            </p>
           </div>
         </CardContent>
       </Card>
