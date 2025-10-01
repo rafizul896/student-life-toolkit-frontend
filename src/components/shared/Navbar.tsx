@@ -232,7 +232,7 @@ const Navber = () => {
     { href: "/Features", label: "Features" },
     { href: "/blogs", label: "Blogs" },
     { href: "/aboutUs", label: "About Us" },
-    { href: "/contectUs", label: "Contact Us" },
+    { href: "/contactUs", label: "Contact Us" },
   ];
 
   const avatarDropdownLinks = [
