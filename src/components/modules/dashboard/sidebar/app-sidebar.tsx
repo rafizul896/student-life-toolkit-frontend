@@ -4,6 +4,7 @@ import * as React from "react";
 import {
   Bot,
   Frame,
+  GraduationCap,
   LifeBuoy,
   Map,
   PieChart,
@@ -103,12 +104,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <Link href="/">
-                {/* <Image
-                  className="w-full max-w-[160px] h-auto"
-                  src={Logo}
-                  alt="Logo"
-                /> */}
-                LoGO
+                <div className="flex items-center space-x-2">
+                  <GraduationCap className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+                  <h3 className="text-3xl font-bold">STL Toolkit</h3>
+                </div>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -117,9 +116,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <NavMain items={data.navMain} />
       </SidebarContent>
-      <SidebarFooter>
-        {/* <NavUser /> */}
-      </SidebarFooter>
+      <SidebarFooter>{/* <NavUser /> */}</SidebarFooter>
     </Sidebar>
   );
 }

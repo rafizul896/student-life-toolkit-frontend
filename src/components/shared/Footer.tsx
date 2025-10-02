@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="flex items-center space-x-2">
             <GraduationCap className="w-8 h-8 text-blue-600 dark:text-blue-400" />
             <h3 className="text-3xl font-bold">
-              Student Life Toolkit
+              STL Toolkit
             </h3>
           </div>
           <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">

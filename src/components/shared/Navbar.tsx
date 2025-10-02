@@ -1,4 +1,5 @@
 "use client";
+import { GraduationCap } from "lucide-react";
 import Link from "next/link";
 import React, { useState, useRef, useEffect } from "react";
 
@@ -262,20 +263,19 @@ const Navber = () => {
     };
   }, []);
 
-
   return (
     <header className="bg-white/80 dark:bg-black/80 backdrop-blur-sm sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800">
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-16">
           {/* Logo and Desktop Navigation */}
           <div className="flex items-center gap-10">
-            {/* Logo */}
-            <a href="#" className="flex items-center gap-2 flex-shrink-0">
-              <MountainIcon className="h-6 w-6 text-gray-900 dark:text-gray-100" />
-              <span className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                Stl Toolkit
-              </span>
-            </a>
+            <Link href={"/"}>
+              {/* Logo */}
+              <div className="flex items-center space-x-2">
+                <GraduationCap className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+                <h3 className="text-3xl font-bold">STL Toolkit</h3>
+              </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-6">
