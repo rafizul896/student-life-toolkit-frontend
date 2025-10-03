@@ -24,7 +24,6 @@ import {
 } from "@/components/ui/sidebar";
 import { NavMain } from "./nav-main";
 import Link from "next/link";
-import Image from "next/image";
 
 const data = {
   navMain: [
