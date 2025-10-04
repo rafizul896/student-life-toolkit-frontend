@@ -1,29 +1,48 @@
 import React from "react";
 import { UserPlus, Settings, Sparkles, ArrowRight } from "lucide-react";
 
+type ColorType = "blue" | "indigo" | "purple";
+
 const HowItWorksSection = () => {
-  const steps = [
+  const steps: {
+    icon: typeof UserPlus;
+    title: string;
+    description: string;
+    color: ColorType;
+  }[] = [
     {
       icon: UserPlus,
       title: "Create Your Profile",
-      description: "Sign up and create your personalized student profile in seconds.",
-      color: "blue",
+      description:
+        "Sign up and create your personalized student profile in seconds.",
+      color: "blue" as ColorType,
     },
     {
       icon: Settings,
       title: "Choose Your Tools",
-      description: "Select from Class, Budget, Planner, Notes, and more tools tailored to your needs.",
-      color: "indigo",
+      description:
+        "Select from Class, Budget, Planner, Notes, and more tools tailored to your needs.",
+      color: "indigo" as ColorType,
     },
     {
       icon: Sparkles,
       title: "Stay Organized",
-      description: "Manage your daily student life effortlessly with all your tools in one place.",
-      color: "purple",
+      description:
+        "Manage your daily student life effortlessly with all your tools in one place.",
+      color: "purple" as ColorType,
     },
   ];
 
-  const colorClasses = {
+  const colorClasses: Record<
+    ColorType,
+    {
+      bg: string;
+      iconBg: string;
+      iconColor: string;
+      border: string;
+      stepColor: string;
+    }
+  > = {
     blue: {
       bg: "bg-blue-50 dark:bg-blue-900/20",
       iconBg: "bg-blue-100 dark:bg-blue-900/40",
@@ -73,24 +92,28 @@ const HowItWorksSection = () => {
             </div>
           </div>
 
-          {steps?.map((step, i) => {
+          {steps.map((step, i) => {
             const colors = colorClasses[step.color];
             const Icon = step.icon;
-            
+
             return (
               <div
                 key={i}
                 className={`relative p-8 ${colors.bg} border-2 ${colors.border} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group`}
               >
                 {/* Step Number Badge */}
-                <div className={`absolute -top-4 -left-4 w-12 h-12 ${colors.iconBg} rounded-full flex items-center justify-center border-4 border-white dark:border-gray-900 shadow-md`}>
+                <div
+                  className={`absolute -top-4 -left-4 w-12 h-12 ${colors.iconBg} rounded-full flex items-center justify-center border-4 border-white dark:border-gray-900 shadow-md`}
+                >
                   <span className={`text-xl font-bold ${colors.stepColor}`}>
                     {i + 1}
                   </span>
                 </div>
 
                 {/* Icon */}
-                <div className={`w-16 h-16 ${colors.iconBg} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                <div
+                  className={`w-16 h-16 ${colors.iconBg} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+                >
                   <Icon className={`w-8 h-8 ${colors.iconColor}`} />
                 </div>
 
