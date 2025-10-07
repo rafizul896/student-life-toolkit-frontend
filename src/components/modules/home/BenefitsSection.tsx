@@ -133,27 +133,6 @@ const BenefitsSection = () => {
           })}
         </div>
 
-        {/* Bottom Stats Section */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto">
-          {[
-            { value: "10K+", label: "Active Students" },
-            { value: "50K+", label: "Tasks Completed" },
-            { value: "4.9/5", label: "User Rating" },
-            { value: "24/7", label: "Support" },
-          ].map((stat, idx) => (
-            <div
-              key={idx}
-              className="text-center p-6 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl shadow-lg border border-white/50 dark:border-gray-700/50 hover:scale-105 transition-transform duration-300"
-            >
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent mb-2">
-                {stat.value}
-              </div>
-              <div className="text-sm md:text-base text-gray-700 dark:text-gray-300 font-medium">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
