@@ -1,12 +1,21 @@
-import React from "react";
-import { Users, Target, BookOpen, Heart, TrendingUp, Award, Sparkles, CheckCircle } from "lucide-react";
+import {
+  Users,
+  Target,
+  BookOpen,
+  Heart,
+  TrendingUp,
+  Award,
+  Sparkles,
+  CheckCircle,
+} from "lucide-react";
 
 export default function AboutPage() {
   const cards = [
     {
       icon: Target,
       title: "Our Mission",
-      description: "Empower students by providing them with digital tools to stay productive, focused, and stress-free during their academic journey.",
+      description:
+        "Empower students by providing them with digital tools to stay productive, focused, and stress-free during their academic journey.",
       gradient: "from-blue-500 to-cyan-500",
       iconBg: "bg-blue-100 dark:bg-blue-900/30",
       iconColor: "text-blue-600 dark:text-blue-400",
@@ -14,7 +23,8 @@ export default function AboutPage() {
     {
       icon: BookOpen,
       title: "Our Vision",
-      description: "To become the go-to student companion app worldwide — helping students achieve success with better planning and smarter tools.",
+      description:
+        "To become the go-to student companion app worldwide — helping students achieve success with better planning and smarter tools.",
       gradient: "from-purple-500 to-pink-500",
       iconBg: "bg-purple-100 dark:bg-purple-900/30",
       iconColor: "text-purple-600 dark:text-purple-400",
@@ -22,7 +32,8 @@ export default function AboutPage() {
     {
       icon: Users,
       title: "Who We Are",
-      description: "A passionate group of developers, designers, and learners who understand the struggles of student life and aim to solve them with technology.",
+      description:
+        "A passionate group of developers, designers, and learners who understand the struggles of student life and aim to solve them with technology.",
       gradient: "from-green-500 to-emerald-500",
       iconBg: "bg-green-100 dark:bg-green-900/30",
       iconColor: "text-green-600 dark:text-green-400",
@@ -58,20 +69,26 @@ export default function AboutPage() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-900/30 px-4 py-2 rounded-full mb-6">
               <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-              <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">About Us</span>
+              <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">
+                About Us
+              </span>
             </div>
-            
+
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 dark:from-blue-400 dark:via-purple-400 dark:to-cyan-400 bg-clip-text text-transparent">
                 Student Life Toolkit
               </span>
             </h1>
-            
+
             <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Built with one mission in mind – to make student life{" "}
-              <span className="font-semibold text-gray-900 dark:text-white">smarter, simpler, and more organized</span>. 
-              Whether it's managing your class schedule, keeping track of your budget, planning your study sessions, 
-              or preparing for exams, this toolkit brings everything into one easy-to-use platform.
+              <span className="font-semibold text-gray-900 dark:text-white">
+                smarter, simpler, and more organized
+              </span>
+              . Whether it&lsquo;s managing your class schedule, keeping track
+              of your budget, planning your study sessions, or preparing for
+              exams, this toolkit brings everything into one easy-to-use
+              platform.
             </p>
           </div>
 
@@ -109,11 +126,18 @@ export default function AboutPage() {
                 className="group relative bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 overflow-hidden"
               >
                 {/* Gradient overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-                
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                ></div>
+
                 {/* Icon */}
-                <div className={`relative ${card.iconBg} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon className={`w-8 h-8 ${card.iconColor}`} strokeWidth={2.5} />
+                <div
+                  className={`relative ${card.iconBg} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <Icon
+                    className={`w-8 h-8 ${card.iconColor}`}
+                    strokeWidth={2.5}
+                  />
                 </div>
 
                 {/* Content */}
@@ -125,7 +149,9 @@ export default function AboutPage() {
                 </p>
 
                 {/* Decorative element */}
-                <div className={`absolute -bottom-2 -right-2 w-24 h-24 bg-gradient-to-br ${card.gradient} opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity duration-500`}></div>
+                <div
+                  className={`absolute -bottom-2 -right-2 w-24 h-24 bg-gradient-to-br ${card.gradient} opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity duration-500`}
+                ></div>
               </div>
             );
           })}
@@ -166,7 +192,8 @@ export default function AboutPage() {
             Join Our Community
           </h2>
           <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
-            Be part of thousands of students who are transforming their academic journey with our toolkit.
+            Be part of thousands of students who are transforming their academic
+            journey with our toolkit.
           </p>
           <button className="bg-white text-blue-600 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center gap-2">
             Get Started Free
