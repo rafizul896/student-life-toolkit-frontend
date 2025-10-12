@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-"use client";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, MessageSquare, MapPin, Send } from "lucide-react";
-import { useState } from "react";
+'use client'
+import  { useState } from "react";
+import { Mail, MessageSquare, MapPin, Send, HelpCircle, CheckCircle2, Globe } from "lucide-react";
 
 export default function ContactUsPage() {
   const [formData, setFormData] = useState({
@@ -13,14 +11,14 @@ export default function ContactUsPage() {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setSubmitted(true);
     setTimeout(() => {
@@ -29,33 +27,108 @@ export default function ContactUsPage() {
     }, 3000);
   };
 
-  return (
-    <section className="max-w-5xl mx-auto px-6 py-12">
-      <h1 className="text-4xl font-bold text-center mb-6">Contact Us</h1>
-      <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-12">
-        Have questions, feedback, or suggestions? We&lsquo;d love to hear from
-        you! Reach out to us and we&lsquo;ll get back to you as soon as
-        possible.
-      </p>
+  const contactCards = [
+    {
+      icon: Mail,
+      title: "Email Us",
+      gradient: "from-blue-500 to-cyan-500",
+      items: [
+        { label: "For general inquiries:", email: "support@studentlifetoolkit.com" },
+        { label: "For partnerships:", email: "partners@studentlifetoolkit.com" },
+      ],
+    },
+    {
+      icon: MessageSquare,
+      title: "Community",
+      gradient: "from-purple-500 to-pink-500",
+      items: [
+        { label: "Discord Community", link: "#" },
+        { label: "Twitter/X @StudentToolkit", link: "#" },
+        { label: "Reddit Community", link: "#" },
+      ],
+    },
+    {
+      icon: MapPin,
+      title: "Location",
+      gradient: "from-green-500 to-emerald-500",
+      items: [
+        { label: "Student Life Toolkit HQ" },
+        { label: "Remote-first team" },
+        { label: "Serving students worldwide 🌍" },
+      ],
+    },
+  ];
 
-      <div className="grid md:grid-cols-2 gap-8 mb-12">
-        {/* Contact Form */}
-        <Card className="shadow-md">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <MessageSquare className="h-6 w-6 text-indigo-600" />
-              Send Us a Message
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
+  const faqs = [
+    {
+      question: "How quickly will I get a response?",
+      answer: "We typically respond within 24-48 hours during business days.",
+    },
+    {
+      question: "Is this platform free?",
+      answer: "Yes! Student Life Toolkit is completely free for all students.",
+    },
+    {
+      question: "Can I suggest new features?",
+      answer: "Absolutely! We love hearing your ideas. Just use the contact form above.",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50/30 to-white dark:from-gray-900 dark:via-blue-950/20 dark:to-gray-900">
+      {/* Background decoration */}
+      <div className="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
+        <div className="absolute top-40 left-20 w-72 h-72 bg-blue-300 dark:bg-blue-800 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-40 right-20 w-96 h-96 bg-purple-300 dark:bg-purple-800 rounded-full blur-3xl"></div>
+      </div>
+
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-900/30 px-4 py-2 rounded-full mb-6">
+            <MessageSquare className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+            <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">Get In Touch</span>
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 dark:from-blue-400 dark:via-purple-400 dark:to-cyan-400 bg-clip-text text-transparent">
+              Contact Us
+            </span>
+          </h1>
+
+          <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Have questions, feedback, or suggestions? We&lsquo;d love to hear from you! 
+            Reach out and we&lsquo;ll get back to you as soon as possible.
+          </p>
+        </div>
+
+        {/* Main Grid */}
+        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+          {/* Contact Form */}
+          <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl border border-gray-100 dark:border-gray-700">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-gradient-to-br from-blue-500 to-purple-500 w-12 h-12 rounded-xl flex items-center justify-center">
+                <Send className="w-6 h-6 text-white" />
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                Send Us a Message
+              </h2>
+            </div>
+
             {submitted ? (
-              <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg text-center">
-                Thank you! Your message has been sent successfully.
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border-2 border-green-500 dark:border-green-600 rounded-2xl p-6 text-center">
+                <CheckCircle2 className="w-16 h-16 text-green-600 dark:text-green-400 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-2">
+                  Message Sent Successfully!
+                </h3>
+                <p className="text-green-700 dark:text-green-400">
+                  Thank you for reaching out. We&lsquo;ll get back to you soon.
+                </p>
               </div>
             ) : (
-              <div className="space-y-4">
+              <div className="space-y-5">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                     Name
                   </label>
                   <input
@@ -63,12 +136,13 @@ export default function ContactUsPage() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                     placeholder="Your name"
                   />
                 </div>
+
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                     Email
                   </label>
                   <input
@@ -76,12 +150,13 @@ export default function ContactUsPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                     placeholder="your.email@example.com"
                   />
                 </div>
+
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                     Subject
                   </label>
                   <input
@@ -89,144 +164,127 @@ export default function ContactUsPage() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                     placeholder="What is this about?"
                   />
                 </div>
+
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                     Message
                   </label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows={4}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none"
+                    rows={5}
+                    className="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-all duration-300"
                     placeholder="Tell us more..."
                   />
                 </div>
+
                 <button
                   onClick={handleSubmit}
-                  className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition flex items-center justify-center gap-2 font-medium"
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 px-6 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
                 >
-                  <Send className="h-4 w-4" />
+                  <Send className="w-5 h-5" />
                   Send Message
                 </button>
               </div>
             )}
-          </CardContent>
-        </Card>
+          </div>
 
-        {/* Contact Information */}
-        <div className="space-y-6">
-          <Card className="shadow-md hover:shadow-lg transition">
-            <CardHeader className="flex flex-row items-center gap-3">
-              <Mail className="h-8 w-8 text-indigo-600" />
-              <CardTitle>Email Us</CardTitle>
-            </CardHeader>
-            <CardContent className="text-gray-600">
-              <p className="mb-2">For general inquiries:</p>
-              <a
-                href="mailto:support@studentlifetoolkit.com"
-                className="text-indigo-600 hover:underline font-medium"
-              >
-                support@studentlifetoolkit.com
-              </a>
-              <p className="mt-4 mb-2">For partnerships:</p>
-              <a
-                href="mailto:partners@studentlifetoolkit.com"
-                className="text-indigo-600 hover:underline font-medium"
-              >
-                partners@studentlifetoolkit.com
-              </a>
-            </CardContent>
-          </Card>
+          {/* Contact Information */}
+          <div className="space-y-6">
+            {contactCards.map((card, idx) => {
+              const Icon = card.icon;
+              return (
+                <div
+                  key={idx}
+                  className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`bg-gradient-to-br ${card.gradient} w-12 h-12 rounded-xl flex items-center justify-center`}>
+                      <Icon className="w-6 h-6 text-white" strokeWidth={2.5} />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                      {card.title}
+                    </h3>
+                  </div>
 
-          <Card className="shadow-md hover:shadow-lg transition">
-            <CardHeader className="flex flex-row items-center gap-3">
-              <MessageSquare className="h-8 w-8 text-indigo-600" />
-              <CardTitle>Community</CardTitle>
-            </CardHeader>
-            <CardContent className="text-gray-600">
-              <p className="mb-3">
-                Join our community for tips, updates, and support:
-              </p>
-              <div className="space-y-2">
-                <a
-                  href="#"
-                  className="block text-indigo-600 hover:underline font-medium"
-                >
-                  Discord Community →
-                </a>
-                <a
-                  href="#"
-                  className="block text-indigo-600 hover:underline font-medium"
-                >
-                  Twitter/X @StudentToolkit →
-                </a>
-                <a
-                  href="#"
-                  className="block text-indigo-600 hover:underline font-medium"
-                >
-                  Reddit Community →
-                </a>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="shadow-md hover:shadow-lg transition">
-            <CardHeader className="flex flex-row items-center gap-3">
-              <MapPin className="h-8 w-8 text-indigo-600" />
-              <CardTitle>Location</CardTitle>
-            </CardHeader>
-            <CardContent className="text-gray-600">
-              <p>Student Life Toolkit HQ</p>
-              <p className="text-sm mt-1">
-                Remote-first team
-                <br />
-                Serving students worldwide 🌍
-              </p>
-            </CardContent>
-          </Card>
+                  <div className="space-y-3">
+                    {card.items.map((item, itemIdx) => (
+                      <div key={itemIdx}>
+                        {item.label && !item.email && !item.link && (
+                          <p className="text-gray-700 dark:text-gray-300">
+                            {item.label}
+                          </p>
+                        )}
+                        {item.label && item.email && (
+                          <>
+                            <p className="text-gray-600 dark:text-gray-400 text-sm mb-1">
+                              {item.label}
+                            </p>
+                            <a
+                              href={`mailto:${item.email}`}
+                              className="text-blue-600 dark:text-blue-400 hover:underline font-semibold block"
+                            >
+                              {item.email}
+                            </a>
+                          </>
+                        )}
+                        {item.link && (
+                          <a
+                            href={item.link}
+                            className="text-blue-600 dark:text-blue-400 hover:underline font-semibold flex items-center gap-1 group"
+                          >
+                            <span>{item.label}</span>
+                            <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                          </a>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
 
-      {/* FAQ Section */}
-      <Card className="shadow-md">
-        <CardHeader>
-          <CardTitle className="text-center">
-            Frequently Asked Questions
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div>
-            <h3 className="font-semibold text-gray-800 mb-2">
-              How quickly will I get a response?
-            </h3>
-            <p className="text-gray-600 text-sm">
-              We typically respond within 24-48 hours during business days.
-            </p>
+        {/* FAQ Section */}
+        <div className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-800 rounded-3xl p-8 md:p-12 shadow-xl border border-purple-100 dark:border-gray-700">
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <HelpCircle className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+              Frequently Asked Questions
+            </h2>
           </div>
-          <div>
-            <h3 className="font-semibold text-gray-800 mb-2">
-              Is this platform free?
-            </h3>
-            <p className="text-gray-600 text-sm">
-              Yes! Student Life Toolkit is completely free for all students.
-            </p>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {faqs.map((faq, idx) => (
+              <div
+                key={idx}
+                className="bg-white dark:bg-gray-700/50 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              >
+                <h3 className="font-bold text-gray-900 dark:text-white mb-3 text-lg">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
           </div>
-          <div>
-            <h3 className="font-semibold text-gray-800 mb-2">
-              Can I suggest new features?
-            </h3>
-            <p className="text-gray-600 text-sm">
-              Absolutely! We love hearing your ideas. Just use the contact form
-              above.
-            </p>
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-16 text-center">
+          <div className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400">
+            <Globe className="w-5 h-5" />
+            <span className="text-sm">Available 24/7 • Response within 48 hours • Supporting students worldwide</span>
           </div>
-        </CardContent>
-      </Card>
-    </section>
+        </div>
+      </section>
+    </div>
   );
 }
