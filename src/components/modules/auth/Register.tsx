@@ -1,10 +1,10 @@
+'use client'
 import React, { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
   GraduationCap, 
   Mail, 
@@ -19,7 +19,7 @@ import {
   Chrome
 } from "lucide-react";
 
-export default function RegisterPage() {
+export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -137,7 +137,7 @@ export default function RegisterPage() {
           <div className="space-y-4">
             <h3 className="font-semibold text-gray-900 dark:text-white flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-yellow-500" />
-              What you'll get:
+              What you&lsquo;ll get:
             </h3>
             <div className="space-y-3">
               {benefits.map((benefit, idx) => (
