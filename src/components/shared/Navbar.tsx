@@ -1,5 +1,6 @@
 "use client";
-import { GraduationCap } from "lucide-react";
+import Logo from "@assets/logo.png";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useRef, useEffect } from "react";
 
@@ -269,13 +270,13 @@ const Navber = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo and Desktop Navigation */}
           <div className="flex items-center gap-10">
-            <Link href={"/"}>
-              {/* Logo */}
-              <div className="flex items-center space-x-2">
-                <GraduationCap className="w-8 h-8 text-blue-600 dark:text-blue-400" />
-                <h3 className="text-3xl font-bold">STL Toolkit</h3>
-              </div>
-            </Link>
+           <Link href={"/"}>
+          <Image
+            className="w-full max-w-[160px] h-auto"
+            src={Logo}
+            alt="Logo"
+          />
+        </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-6">
