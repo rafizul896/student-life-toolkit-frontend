@@ -1,16 +1,22 @@
-"use client"
-import  { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+"use client";
+import { useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { 
-  GraduationCap, 
-  Mail, 
-  Lock, 
-  Eye, 
-  EyeOff, 
+import {
+  GraduationCap,
+  Mail,
+  Lock,
+  Eye,
+  EyeOff,
   ArrowRight,
   Github,
   Chrome,
@@ -18,7 +24,7 @@ import {
   BookOpen,
   Calendar,
   Wallet,
-  TrendingUp
+  TrendingUp,
 } from "lucide-react";
 
 export default function Login() {
@@ -71,9 +77,21 @@ export default function Login() {
 
   const features = [
     { icon: BookOpen, text: "Smart Notes", color: "from-blue-500 to-cyan-500" },
-    { icon: Calendar, text: "Class Scheduler", color: "from-purple-500 to-pink-500" },
-    { icon: Wallet, text: "Budget Tracker", color: "from-green-500 to-emerald-500" },
-    { icon: TrendingUp, text: "Study Planner", color: "from-orange-500 to-red-500" },
+    {
+      icon: Calendar,
+      text: "Class Scheduler",
+      color: "from-purple-500 to-pink-500",
+    },
+    {
+      icon: Wallet,
+      text: "Budget Tracker",
+      color: "from-green-500 to-emerald-500",
+    },
+    {
+      icon: TrendingUp,
+      text: "Study Planner",
+      color: "from-orange-500 to-red-500",
+    },
   ];
 
   return (
@@ -96,7 +114,9 @@ export default function Login() {
                 <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
                   Student Life Toolkit
                 </h1>
-                <p className="text-gray-600 dark:text-gray-400">Welcome back!</p>
+                <p className="text-gray-600 dark:text-gray-400">
+                  Welcome back!
+                </p>
               </div>
             </div>
 
@@ -109,7 +129,8 @@ export default function Login() {
             </h2>
 
             <p className="text-lg text-gray-700 dark:text-gray-300">
-              Access your personalized dashboard and all the tools you need to excel in your studies.
+              Access your personalized dashboard and all the tools you need to
+              excel in your studies.
             </p>
           </div>
 
@@ -122,49 +143,17 @@ export default function Login() {
                   key={idx}
                   className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-5 border border-white/60 dark:border-gray-700/60 hover:scale-105 transition-transform duration-300"
                 >
-                  <div className={`bg-gradient-to-br ${feature.color} w-12 h-12 rounded-xl flex items-center justify-center mb-3`}>
+                  <div
+                    className={`bg-gradient-to-br ${feature.color} w-12 h-12 rounded-xl flex items-center justify-center mb-3`}
+                  >
                     <Icon className="w-6 h-6 text-white" />
                   </div>
-                  <p className="font-semibold text-gray-900 dark:text-white">{feature.text}</p>
+                  <p className="font-semibold text-gray-900 dark:text-white">
+                    {feature.text}
+                  </p>
                 </div>
               );
             })}
-          </div>
-
-          {/* Stats */}
-          <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-white/60 dark:border-gray-700/60">
-            <div className="grid grid-cols-3 gap-4 text-center">
-              <div>
-                <p className="text-2xl font-bold text-gray-900 dark:text-white">10K+</p>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Students</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-gray-900 dark:text-white">4.9/5</p>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Rating</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-gray-900 dark:text-white">50K+</p>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Tasks Done</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Testimonial */}
-          <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-6 text-white shadow-xl">
-            <div className="flex items-center gap-2 mb-3">
-              <Sparkles className="w-5 h-5 text-yellow-300" />
-              <p className="font-semibold">Student Testimonial</p>
-            </div>
-            <p className="text-blue-50 mb-4 italic">
-              "This toolkit has completely transformed how I manage my studies. I&lsquo;m more organized and less stressed!"
-            </p>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 border-2 border-white"></div>
-              <div>
-                <p className="font-semibold">Sarah Johnson</p>
-                <p className="text-sm text-blue-100">Computer Science, MIT</p>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -222,7 +211,9 @@ export default function Login() {
                     placeholder="student@university.edu"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`pl-10 h-12 ${errors.email ? "border-red-500" : ""}`}
+                    className={`pl-10 h-12 ${
+                      errors.email ? "border-red-500" : ""
+                    }`}
                   />
                 </div>
                 {errors.email && (
@@ -233,7 +224,10 @@ export default function Login() {
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <Label htmlFor="password">Password</Label>
-                  <a href="#" className="text-sm text-blue-600 dark:text-blue-400 hover:underline font-medium">
+                  <a
+                    href="#"
+                    className="text-sm text-blue-600 dark:text-blue-400 hover:underline font-medium"
+                  >
                     Forgot password?
                   </a>
                 </div>
@@ -246,7 +240,9 @@ export default function Login() {
                     placeholder="••••••••"
                     value={formData.password}
                     onChange={handleChange}
-                    className={`pl-10 pr-10 h-12 ${errors.password ? "border-red-500" : ""}`}
+                    className={`pl-10 pr-10 h-12 ${
+                      errors.password ? "border-red-500" : ""
+                    }`}
                   />
                   <button
                     type="button"
@@ -291,7 +287,10 @@ export default function Login() {
 
             <div className="text-center text-sm text-gray-600 dark:text-gray-400">
               Don&lsquo;t have an account?{" "}
-              <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline font-semibold">
+              <a
+                href="#"
+                className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+              >
                 Create account
               </a>
             </div>
