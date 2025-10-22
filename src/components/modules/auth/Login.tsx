@@ -20,7 +20,6 @@ import {
   ArrowRight,
   Github,
   Chrome,
-  Sparkles,
   BookOpen,
   Calendar,
   Wallet,

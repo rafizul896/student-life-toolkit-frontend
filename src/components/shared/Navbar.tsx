@@ -41,40 +41,6 @@ const XIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const MountainIcon = ({ className }: { className?: string }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
-  </svg>
-);
-
-const ChevronDownIcon = ({ className }: { className?: string }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <path d="m6 9 6 6 6-6" />
-  </svg>
-);
-
 const BellIcon = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -270,13 +236,13 @@ const Navber = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo and Desktop Navigation */}
           <div className="flex items-center gap-10">
-           <Link href={"/"}>
-          <Image
-            className="w-full max-w-[160px] h-auto"
-            src={Logo}
-            alt="Logo"
-          />
-        </Link>
+            <Link href={"/"}>
+              <Image
+                className="w-full max-w-[160px] h-auto"
+                src={Logo}
+                alt="Logo"
+              />
+            </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-6">
