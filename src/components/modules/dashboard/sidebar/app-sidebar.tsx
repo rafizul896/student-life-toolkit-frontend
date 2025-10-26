@@ -4,7 +4,6 @@ import * as React from "react";
 import {
   Bot,
   Frame,
-  GraduationCap,
   LifeBuoy,
   Map,
   PieChart,
@@ -12,6 +11,7 @@ import {
   Settings,
   SquareTerminal,
 } from "lucide-react";
+import Logo from "@assets/logo.png";
 
 import {
   Sidebar,
@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/sidebar";
 import { NavMain } from "./nav-main";
 import Link from "next/link";
+import Image from "next/image";
 
 const data = {
   navMain: [
@@ -102,11 +103,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <Link href="/">
-                <div className="flex items-center space-x-2">
-                  <GraduationCap className="w-8 h-8 text-blue-600 dark:text-blue-400" />
-                  <h3 className="text-3xl font-bold">STL Toolkit</h3>
-                </div>
+              <Link href={"/"}>
+                <Image
+                  className="w-full max-w-[160px] h-auto"
+                  src={Logo}
+                  alt="Logo"
+                />
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>

@@ -1,6 +1,9 @@
 "use client";
 import React from "react";
-import { Github, Twitter, Linkedin, BookOpen, Calendar, GraduationCap } from "lucide-react";
+import { Github, Twitter, Linkedin, BookOpen, Calendar } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import Logo from "@assets/logo.png";
 
 const Footer = () => {
   return (
@@ -8,14 +11,21 @@ const Footer = () => {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         <div className="space-y-4">
           <div className="flex items-center space-x-2">
-            <GraduationCap className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+            {/* <GraduationCap className="w-8 h-8 text-blue-600 dark:text-blue-400" />
             <h3 className="text-3xl font-bold">
               STL Toolkit
-            </h3>
+            </h3> */}
+            <Link href={"/"}>
+              <Image
+                className="w-full max-w-[160px] h-auto"
+                src={Logo}
+                alt="Logo"
+              />
+            </Link>
           </div>
           <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-            Empowering students with essential tools and resources for academic success, 
-            personal growth, and a balanced university life.
+            Empowering students with essential tools and resources for academic
+            success, personal growth, and a balanced university life.
           </p>
           <div className="flex space-x-5 pt-2">
             <a
@@ -41,7 +51,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        
+
         <div className="space-y-4">
           <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">
             Quick Links
@@ -115,13 +125,15 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      
+
       <div className="text-center text-gray-500 dark:text-gray-400 text-sm pt-10 mt-10 border-t border-gray-200 dark:border-gray-700">
         <p>
-          &copy; {new Date().getFullYear()} Student Life Toolkit. All rights reserved.
+          &copy; {new Date().getFullYear()} Student Life Toolkit. All rights
+          reserved.
         </p>
         <p className="mt-1">
-          Made with <span className="text-red-500">&hearts;</span> for students, by students
+          Made with <span className="text-red-500">&hearts;</span> for students,
+          by students
         </p>
       </div>
     </footer>
