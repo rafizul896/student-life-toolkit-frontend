@@ -1,4 +1,4 @@
-# 🎓 Student Life Toolkit App
+# 🎓 StudySync --> Student Life Toolkit App
 
 A modern web application built with **Next.js**, **React**, and **ShadCN UI**, designed to simplify and organize student life. From tracking your classes to managing budgets, planning study goals, and preparing for exams — everything is in one place!
 
