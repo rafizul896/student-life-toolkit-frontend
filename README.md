@@ -28,9 +28,10 @@ A modern web application built with **Next.js**, **React**, and **ShadCN UI**, d
 Clone the repo and install dependencies:
 
 ```bash
-git clone https://github.com/your-username/student-life-toolkit.git
+git clone https://github.com/rafizul896/student-life-toolkit-frontend
+```
+```bash
 cd student-life-toolkit
-npm install
 ```
 
 ---
