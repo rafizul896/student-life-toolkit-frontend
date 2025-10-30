@@ -1,6 +1,14 @@
-'use client'
-import  { useState } from "react";
-import { Mail, MessageSquare, MapPin, Send, HelpCircle, CheckCircle2, Globe } from "lucide-react";
+"use client";
+import { useState } from "react";
+import {
+  Mail,
+  MessageSquare,
+  MapPin,
+  Send,
+  HelpCircle,
+  CheckCircle2,
+  Globe,
+} from "lucide-react";
 
 export default function ContactUsPage() {
   const [formData, setFormData] = useState({
@@ -11,7 +19,9 @@ export default function ContactUsPage() {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -33,8 +43,14 @@ export default function ContactUsPage() {
       title: "Email Us",
       gradient: "from-blue-500 to-cyan-500",
       items: [
-        { label: "For general inquiries:", email: "support@studentlifetoolkit.com" },
-        { label: "For partnerships:", email: "partners@studentlifetoolkit.com" },
+        {
+          label: "For general inquiries:",
+          email: "support@studentlifetoolkit.com",
+        },
+        {
+          label: "For partnerships:",
+          email: "partners@studentlifetoolkit.com",
+        },
       ],
     },
     {
@@ -70,7 +86,8 @@ export default function ContactUsPage() {
     },
     {
       question: "Can I suggest new features?",
-      answer: "Absolutely! We love hearing your ideas. Just use the contact form above.",
+      answer:
+        "Absolutely! We love hearing your ideas. Just use the contact form above.",
     },
   ];
 
@@ -87,7 +104,9 @@ export default function ContactUsPage() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-900/30 px-4 py-2 rounded-full mb-6">
             <MessageSquare className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-            <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">Get In Touch</span>
+            <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">
+              Get In Touch
+            </span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
@@ -97,8 +116,9 @@ export default function ContactUsPage() {
           </h1>
 
           <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Have questions, feedback, or suggestions? We&lsquo;d love to hear from you! 
-            Reach out and we&lsquo;ll get back to you as soon as possible.
+            Have questions, feedback, or suggestions? We&lsquo;d love to hear
+            from you! Reach out and we&lsquo;ll get back to you as soon as
+            possible.
           </p>
         </div>
 
@@ -204,7 +224,9 @@ export default function ContactUsPage() {
                   className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className={`bg-gradient-to-br ${card.gradient} w-12 h-12 rounded-xl flex items-center justify-center`}>
+                    <div
+                      className={`bg-gradient-to-br ${card.gradient} w-12 h-12 rounded-xl flex items-center justify-center`}
+                    >
                       <Icon className="w-6 h-6 text-white" strokeWidth={2.5} />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white">
@@ -239,7 +261,9 @@ export default function ContactUsPage() {
                             className="text-blue-600 dark:text-blue-400 hover:underline font-semibold flex items-center gap-1 group"
                           >
                             <span>{item.label}</span>
-                            <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                            <span className="group-hover:translate-x-1 transition-transform duration-300">
+                              →
+                            </span>
                           </a>
                         )}
                       </div>
@@ -274,14 +298,6 @@ export default function ContactUsPage() {
                 </p>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400">
-            <Globe className="w-5 h-5" />
-            <span className="text-sm">Available 24/7 • Response within 48 hours • Supporting students worldwide</span>
           </div>
         </div>
       </section>
